@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1220" />
+      <stop offset="100%" stop-color="#070A10" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="55%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.85" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect x="20" y="20" width="472" height="472" rx="96" fill="none" stroke="url(#ringGrad)" stroke-width="6" />
+  <!-- Stylized speech/spark badge -->
+  <path d="M132 142 C132 118 152 98 176 98 L336 98 C360 98 380 118 380 142 L380 282 C380 306 360 326 336 326 L236 326 L166 382 L176 326 L176 326 C152 326 132 306 132 282 Z" fill="url(#accentGrad)" />
+  <!-- Crisp 'L' + wave bars representing English speech & bilingual fluency -->
+  <path d="M196 154 L196 268 L266 268" fill="none" stroke="#070A10" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
+  <rect x="284" y="192" width="22" height="76" rx="11" fill="#070A10" />
+  <rect x="318" y="160" width="22" height="108" rx="11" fill="#070A10" />
+  <!-- Bilingual gold spark -->
+  <circle cx="386" cy="118" r="24" fill="#F59E0B" />
+  <circle cx="386" cy="118" r="10" fill="#FEF3C7" />
+</svg>

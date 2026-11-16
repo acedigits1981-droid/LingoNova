@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #070A10;
+    color: #F8FAFC;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .font-fa {
+    font-family: 'Vazirmatn', sans-serif;
+  }
+
+  .font-en {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .font-mono-num {
+    font-family: 'JetBrains Mono', 'Vazirmatn', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Subtle architectural grid background */
+.bg-architectural-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+}
+
+/* Obsidian surface card with subtle cursor spotlight */
+.obsidian-surface {
+  position: relative;
+  background: linear-gradient(180deg, rgba(16, 22, 34, 0.86) 0%, rgba(10, 14, 23, 0.94) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.spotlight-surface {
+  position: relative;
+}
+
+.spotlight-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    460px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(34, 211, 238, 0.24),
+    transparent 55%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.spotlight-surface:hover::before {
+  opacity: 1;
+}
+
+/* Tactile 3D Word Token Button */
+.word-token-btn {
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.92) 0%, rgba(15, 23, 42, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 0 3px 0 rgba(2, 6, 23, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.word-token-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: rgba(34, 211, 238, 0.55);
+}
+
+.word-token-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 rgba(2, 6, 23, 0.95);
+}
+
+/* Primary Action CTA */
+.cta-emerald {
+  background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+  box-shadow: 0 8px 24px -6px rgba(16, 185, 129, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), filter 0.15s ease, opacity 0.15s ease;
+}
+
+.cta-emerald:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.cta-emerald:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.cta-emerald:disabled {
+  background: rgba(30, 41, 59, 0.65);
+  color: rgba(148, 163, 184, 0.45);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* 3D Flashcard Flip */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Audio Equalizer Bars */
+.eq-bar {
+  width: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(to top, #10B981, #22D3EE);
+  transform-origin: bottom;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.eq-playing .eq-bar {
+  animation: eqBounce 0.65s ease-in-out infinite alternate;
+}
+
+@keyframes eqBounce {
+  0% {
+    transform: scaleY(0.35);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scaleY(1.25);
+    opacity: 1;
+  }
+}
+
+@keyframes shakeError {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+  40%, 60% { transform: translate3d(6px, 0, 0); }
+}
+
+.animate-shake-error {
+  animation: shakeError 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}

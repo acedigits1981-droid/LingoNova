@@ -1,0 +1,6 @@
+{
+  "name": "LingoNova — Persian-to-English Language Learning Platform",
+  "description": "A modern, interactive English language learning web application for Persian speakers featuring neural flashcards, multi-modal exercises, speech synthesis, and a live JSON curriculum studio.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
